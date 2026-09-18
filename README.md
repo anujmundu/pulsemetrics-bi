@@ -1,11 +1,13 @@
 # PulseMetrics Copilot™ (2026 Edition)
 ### Conversational Generative BI, Text-to-SQL & Causal Revenue Intelligence Platform
 
-[![CI Pipeline](https://img.shields.io/badge/CI%20Pipeline-8%2F8%20Passing-success?style=for-the-badge&logo=github-actions)](https://github.com)
+[![CI Pipeline](https://img.shields.io/badge/CI%20Pipeline-8%2F8%20Passing-success?style=for-the-badge&logo=github-actions)](https://github.com/anujmundu/pulsemetrics-bi/actions)
+[![Streamlit Cloud](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/deploy?repository=anujmundu%2Fpulsemetrics-bi&branch=main&main_file=streamlit_app.py)
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Database Engine](https://img.shields.io/badge/OLAP%20Engine-DuckDB%20Columnar-yellow?style=for-the-badge&logo=duckdb)](https://duckdb.org/)
 [![Visualization](https://img.shields.io/badge/Visualization-Plotly%20%26%20Streamlit-red?style=for-the-badge&logo=plotly)](https://plotly.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
 
 > **Role Fit:** Senior Data Analyst | BI Engineer | Analytics Engineer | Python Data Scientist  
 > **Key Tech Stack:** DuckDB, SQLite3, Scikit-learn, Plotly, Streamlit, Pandas, NumPy.  
