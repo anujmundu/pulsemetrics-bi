@@ -137,3 +137,17 @@ Open [http://localhost:8502](http://localhost:8502) in your browser. Upload any 
 ```bash
 pytest tests/ -v
 ```
+
+---
+
+## 🧑‍💻 Author & Contact
+
+**Anuj Mundu**  
+*Senior Data Analyst | BI & Analytics Engineer | Python Data Scientist*  
+
+- **GitHub:** [@anujmundu](https://github.com/anujmundu)
+- **Repository:** [pulsemetrics-bi](https://github.com/anujmundu/pulsemetrics-bi)
+- **Email:** [anujmark.edwin.ame@gmail.com](mailto:anujmark.edwin.ame@gmail.com)
+
+⭐ *Contributions, issues, and feature requests are welcome! Feel free to star this repository if you find it valuable.*
+
