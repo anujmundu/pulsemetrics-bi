@@ -8,36 +8,44 @@
 PulseMetrics-BI is an in-process, sub-second analytical revenue engine designed to transform high-volume transactional logs (millions of rows) into executive financial intelligence, cohort retention heatmaps, MRR waterfall decompositions, and machine learning flight-risk predictions.
 
 ```mermaid
-graph TD
-    subgraph Raw Ingestion
-        A1[UCI Online Retail CSV 541k rows] --> B[AnalyticalPipeline]
-        A2[IBM Telco Churn CSV] --> B
-        A3[Microsoft Orders CSV] --> B
-        A4[Stripe / SaaS Subscription CSV] --> B
+flowchart TD
+    subgraph RawIngestion["Raw Ingestion"]
+        A1["UCI Online Retail CSV (541k rows)"] --> B["AnalyticalPipeline"]
+        A2["IBM Telco Churn CSV"] --> B
+        A3["Microsoft Orders CSV"] --> B
+        A4["Stripe / SaaS Subscription CSV"] --> B
     end
 
-    subgraph Intelligent Schema Adapter
-        B --> C1[Column Alias Auto-Mapping<br/>CustomerID, OrderDate, LineItemTotal]
-        C1 --> C2[In-Memory DuckDB OLAP Engine<br/>Fallback: SQLite3]
+    subgraph IntelligentAdapter["Intelligent Schema Adapter"]
+        B --> C1["Column Alias Auto-Mapping<br/>(CustomerID, OrderDate, LineItemTotal)"]
+        C1 --> C2["In-Memory DuckDB OLAP Engine<br/>(Fallback: SQLite3)"]
     end
 
-    subgraph Analytical Transformation Layers
-        C2 --> T1[clean_transactions View]
-        C2 --> T2[customer_cohorts View]
-        T1 --> D1[RevenueWaterfallEngine<br/>New, Expansion, Contraction, Churn]
-        T1 --> D2[CohortAnalysisEngine<br/>Triangular Retention Heatmap]
-        T2 --> D3[RFMSegmentationEngine<br/>Champions, Loyal, At-Risk Clusters]
-        T2 --> D4[ChurnRiskEngine<br/>Logistic Regression & Flight Risk Scoring]
+    subgraph Transformation["Analytical Transformation Layers"]
+        C2 --> T1["clean_transactions View"]
+        C2 --> T2["customer_cohorts View"]
+        T1 --> D1["RevenueWaterfallEngine<br/>(New, Expansion, Contraction, Churn)"]
+        T1 --> D2["CohortAnalysisEngine<br/>(Triangular Retention Heatmap)"]
+        T2 --> D3["RFMSegmentationEngine<br/>(Champions, Loyal, At-Risk Clusters)"]
+        T2 --> D4["ChurnRiskEngine<br/>(Logistic Regression & Flight Risk Scoring)"]
     end
 
-    subgraph Conversational & Causal Intelligence
-        T1 & T2 --> E1[TextToSQLEngine<br/>AST Semantic Validation & SQL Execution]
-        D4 --> E2[CausalAttributionEngine<br/>Usage & Ticket Divergence Diagnostics]
-        D1 & D4 & E2 --> E3[BoardMemoGenerator<br/>Executive Strategic Briefing Studio]
+    subgraph Intelligence["Conversational & Causal Intelligence"]
+        T1 --> E1["TextToSQLEngine<br/>(AST Semantic Validation & SQL Execution)"]
+        T2 --> E1
+        D4 --> E2["CausalAttributionEngine<br/>(Usage & Ticket Divergence Diagnostics)"]
+        D1 --> E3["BoardMemoGenerator<br/>(Executive Strategic Briefing Studio)"]
+        D4 --> E3
+        E2 --> E3
     end
 
-    subgraph Interactive Presentation
-        D1 & D2 & D3 & D4 & E1 & E3 --> F[Dark-Mode Glassmorphic Streamlit Cockpit<br/>Port 8502]
+    subgraph Presentation["Interactive Presentation"]
+        D1 --> F["Dark-Mode Glassmorphic Streamlit Cockpit<br/>(Port 8502)"]
+        D2 --> F
+        D3 --> F
+        D4 --> F
+        E1 --> F
+        E3 --> F
     end
 ```
 

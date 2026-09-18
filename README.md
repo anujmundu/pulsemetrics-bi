@@ -99,17 +99,22 @@ Subscription and e-commerce companies with high transactional volume struggle to
 ## 🏗️ Architecture & Component Flow
 
 ```mermaid
-graph TD
-    A[Raw Subscription CSV / Stripe Export] --> B[DuckDB / SQLite3 Pipeline]
-    B --> C[Normalized Analytical Schema]
-    C --> D1[Triangular Cohort Matrix]
-    C --> D2[MRR Waterfall Decomposition]
-    C --> D3[Behavioral RFM Segmentation]
-    C --> D4[Predictive Churn Classifier]
-    C --> E[Agentic Text-to-SQL Copilot]
-    C --> F[Causal Anomaly Attribution]
-    E & F & D1 & D2 & D3 & D4 --> G[Dark-Mode Glassmorphic Streamlit Dashboard]
-    G --> H[Boardroom Executive Memo Studio]
+flowchart TD
+    A["Raw Subscription CSV / Stripe Export"] --> B["DuckDB / SQLite3 Pipeline"]
+    B --> C["Normalized Analytical Schema"]
+    C --> D1["Triangular Cohort Matrix"]
+    C --> D2["MRR Waterfall Decomposition"]
+    C --> D3["Behavioral RFM Segmentation"]
+    C --> D4["Predictive Churn Classifier"]
+    C --> E["Agentic Text-to-SQL Copilot"]
+    C --> F["Causal Anomaly Attribution"]
+    D1 --> G["Dark-Mode Glassmorphic Streamlit Dashboard"]
+    D2 --> G
+    D3 --> G
+    D4 --> G
+    E --> G
+    F --> G
+    G --> H["Boardroom Executive Memo Studio"]
 ```
 
 ---
